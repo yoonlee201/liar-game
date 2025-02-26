@@ -1,19 +1,24 @@
 import { Text, View } from 'react-native';
 import Link from '@/components/link';
 import words from '@/assets/words.json';
-import { usePathname } from 'expo-router';
 import { DEFAULT_WORDS } from '@/constants/default';
 import Button from '@/components/button';
 import { useState } from 'react';
+import { useLocalSearchParams } from 'expo-router';
 
 export default function Game() {
     const [people, setPeople] = useState(0);
     const [liar, setLiar] = useState(0);
-    const pathname = usePathname().replace('/launch/', '').replace('/', '');
+    const { pathname } = useLocalSearchParams();
+
 
     const {
-        category: { korean },
+        category: { korean }, link, data
     } = words.find(({ link }) => link === pathname) ?? DEFAULT_WORDS;
+
+    const word = data[Math.floor(Math.random() * data.length)];
+    console.log(word);
+    console.log(people, link);
 
     return (
         <View
@@ -53,7 +58,7 @@ export default function Game() {
                     padding: 10,
                     borderRadius: 5,
                 }}
-                href={'../'}>
+                href={`/${link}/${word}/`}>
                 <Text style={{ color: 'black' }}>{'Start'}</Text>
             </Link>
             <Link

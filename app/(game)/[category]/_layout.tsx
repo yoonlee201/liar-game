@@ -4,9 +4,13 @@ export default function RootLayout() {
     return (
         <Stack>
             <Stack.Screen
-                name="[id]"
+                name="[word]"
                 options={{ headerShown: false }}
             />
+            <Stack.Screen
+                name="index"
+                options={{ headerShown: false }} 
+         />
         </Stack>
     );
 }

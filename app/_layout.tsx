@@ -8,14 +8,13 @@ export default function RootLayout() {
                 options={{ headerShown: false }}
             />
             <Stack.Screen
-                name="launch"
+                name="(game)"
                 options={{ headerShown: false }}
             />
             <Stack.Screen
                 name="category"
                 options={{ headerShown: false }}
             />
-            {/* <Stack.Screen name="categories" options={{ headerShown: false }} /> */}
         </Stack>
     );
 }

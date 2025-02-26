@@ -19,7 +19,7 @@ export default function Category() {
                         padding: 10,
                         borderRadius: 5,
                     }}
-                    href={`/launch/${link}`}>
+                    href={`/(game)/${link}`}>
                     {category.korean}
                 </Link>
             ))}
